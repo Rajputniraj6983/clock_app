@@ -1,6 +1,7 @@
 
 import 'package:clock_app/clock.dart';
 import 'package:clock_app/stopwatch.dart';
+import 'package:clock_app/timerwatch.dart';
 import 'package:flutter/material.dart';
 
 void main()
@@ -23,6 +24,7 @@ class _clock1State extends State<clock1> {
         routes: {
            '/':(context) => clock(),
           '/stop':(context) => stopwatch(),
+          '/timer':(context)=> timer(),
         },
       );
   }

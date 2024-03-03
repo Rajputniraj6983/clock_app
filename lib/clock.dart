@@ -22,11 +22,11 @@ class _clockState extends State<clock> {
       });
     });
     return Scaffold(
-        backgroundColor: Colors.grey.shade800,
+        backgroundColor: Colors.blueGrey,
         appBar: AppBar(
-          backgroundColor: Colors.grey.shade800,
+          backgroundColor: Colors.blueGrey,
           centerTitle: true,
-          title: Text('Clock App',style: TextStyle(color:Colors.grey.shade700,fontWeight: FontWeight.bold),),
+          title: Text('Clock App',style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold,fontSize: 30),),
         ),
         body: Center(
           child: Column(
@@ -36,8 +36,8 @@ class _clockState extends State<clock> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('${dateTime.hour}: ${dateTime.minute}:  ${dateTime.second}',style: TextStyle(color: Colors.grey,fontSize: 35,fontWeight: FontWeight.bold),),
-                  Text((dateTime.hour<=12)?' pm':' am',style: TextStyle(color: Colors.grey,fontSize: 35),),
+                  Text('${dateTime.hour}: ${dateTime.minute}:  ${dateTime.second}',style: TextStyle(color: Colors.white,fontSize: 35,fontWeight: FontWeight.bold),),
+                  Text((dateTime.hour<=12)?' PM':' AM',style: TextStyle(color: Colors.white,fontSize: 35),),
                 ],
               ),
               //  Text('Date:Months:Year',style: TextStyle(color: Colors.grey.shade700,fontSize: 18,),),
@@ -46,25 +46,27 @@ class _clockState extends State<clock> {
               Container(
                 alignment: Alignment.center,
                 height: 250,
-                decoration: BoxDecoration(color: Colors.black45,shape: BoxShape.circle),
+                decoration: BoxDecoration(color: Colors.grey.shade100,shape: BoxShape.circle),
                 child: Stack(
                   children: [
                     ...List.generate(60,(index) => Transform.rotate(angle: index * 12 * pi/360,
                       child: Center(
 
                         child: (index%5==0)?Divider(
-                          endIndent: 300, //(index%5==0)?300:305,
+                          endIndent: 290, //(index%5==0)?300:305,
                           indent: 71,
-                          color: Colors.blueAccent,
+                          thickness: 2,
+                          color: Colors.red,
                         ):
                         Divider(
-                          endIndent: 305, //(index%5==0)?300:305,
+                          endIndent: 300, //(index%5==0)?300:305,
                           indent: 71,
+                          thickness: 2,
                         ),
                       ),
                     )
                     ),
-                    Center(child: CircleAvatar(radius: 10)),
+                    Center(child: CircleAvatar(radius: 10),),
                     Center(
                       child: Transform.rotate(
                         angle: dateTime.second * 6 * pi / 180,
@@ -102,8 +104,8 @@ class _clockState extends State<clock> {
                 padding: const EdgeInsets.only(top: 100,left: 60),
                 child: Row(
                   children: [
-                    Icon(Icons.location_on,size: 35,color: Colors.blueGrey,),
-                    Text(" Gujarat,(India)",style: TextStyle(color: Colors.grey,fontSize: 30),),
+                    Icon(Icons.location_on,size: 35,color: Colors.white,),
+                    Text(" Gujarat,(India)",style: TextStyle(color: Colors.white,fontSize: 30),),
                   ],
                 ),
               ),
@@ -111,7 +113,7 @@ class _clockState extends State<clock> {
               IconButton(onPressed: (){
                 Navigator.pushNamed(context, '/stop');
               },
-                icon: Icon(Icons.alarm,size: 80,color: Colors.white70,),)
+                icon: Icon(Icons.alarm,size: 80,color: Colors.white,),)
             ],
           ),
         ),
